@@ -1,7 +1,7 @@
 //
 //  project2.hpp
 //  ComputerVisionProject1
-//
+//  @author Mingmin Song
 //  Created by HJKBD on 2/21/17.
 //  Copyright © 2017 HJKBD. All rights reserved.
 //

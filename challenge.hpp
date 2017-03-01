@@ -1,7 +1,7 @@
 //
 //  chllenge.cpp
 //  ComputerVisionProject1
-//
+// @authour  Mingmin Song
 //  Created by HJKBD on 2/26/17.
 //  Copyright © 2017 HJKBD. All rights reserved.
 //
@@ -119,7 +119,7 @@ Mat findH(Mat Mvec1, Mat Mvec2) {
     return Htilde;
 }
 
-//return sigma
+//return sigma^2
 double findSigma(vector<int>& input1, vector<int>& input2) {
     
     Mat T1 = normalizeT(input1);
@@ -252,7 +252,7 @@ Mat ransac(double p, double eps, vector<Point2d>&in1,vector<Point2d>&in2, vector
     double distStdCurr;
     // Seed the random number generator
     srand(time(0));
-    int count = 8;
+    int count = 6;
     N = ceil(log(1 - p)/(log(1 - (pow((1 - eps), count)))));
     M = count*(1 - eps);
     if (in1.size() > 1000) N = 67422;
@@ -360,7 +360,7 @@ void challenge(vector<int>& input1, vector<int>& input2, double p = 0.9, int N =
     cout << htra<<endl;
     //Mat img_out = Mat(image2.rows,image.cols+image2.cols, image2.type());
     Mat img_out = Mat(im2.rows-miny,im2.cols-minx, im2.type());
-    warpPerspective(im1, img_out,htra*h, im1.size()*4);
+    warpPerspective(im1, img_out,htra*h, img_out.size());
     Mat part(img_out,Rect(-minx,-miny,im2.cols,im2.rows));
     Mat temp = imread(imagefile2);
     temp.copyTo(part);
