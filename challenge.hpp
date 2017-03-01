@@ -109,10 +109,8 @@ Mat findH(Mat Mvec1, Mat Mvec2) {
     H_vec = (A.t() * A).inv() * A.t() * b;
     // Add h33 = 1
     H_vec.push_back(1.0);
-    //cout << "H_vec = " << H_vec << endl;
     // Reshape H vector into matrix form
     Htilde = H_vec.reshape(0, 3);
-//    cout << "A = " << A << endl;
     // Reshape H vector into matrix form
     Htilde = H_vec.reshape(0, 3);
 //        cout << "Htilde = " << Htilde << endl;
@@ -187,8 +185,7 @@ vector<Point2d> findNumInliers(vector<Point2d>& vec1, vector<Point2d>& vec2, Mat
     for (i = 0; i < (int) vec1.size(); i += 1) {
         v1.push_back(vec1[i]);
         v2.push_back(vec2[i]);
-    }
-    /*cout << "vecSSD = " << vecSSD << endl;
+    } /*
          cout << "v1 = " << v1 << endl;
          cout << "v2 = " << v2 << endl;*/
     // Check all correspondences
@@ -209,7 +206,6 @@ vector<Point2d> findNumInliers(vector<Point2d>& vec1, vector<Point2d>& vec2, Mat
                                                                             (int) (prod.at<double> (1, 0)) - v2[i].y, 2.0);
         //cout << "prod: " << prod << endl;
         //cout << "v2[i]: " << v2[i] << endl;
-        //cout << "distTemp: " << distTemp << endl;
         // Compute distance d(Hx, x’)
         prod = H.inv() * xp;
         prod = prod.mul(1 / prod.at<double> (2, 0));
@@ -218,7 +214,6 @@ vector<Point2d> findNumInliers(vector<Point2d>& vec1, vector<Point2d>& vec2, Mat
         //cout << "distTemp: " << distTemp << endl;
         // Check inlier threshold
         if (distTemp < distThres) {
-            //cout << "i = " << i << endl;
             // Add inlier to filtered vector
             vecInliers.push_back(v1[i]);
             vecInliers.push_back(v2[i]);
@@ -341,7 +336,6 @@ void challenge(vector<int>& input1, vector<int>& input2, double p = 0.9, int N =
     cout << "Time counsumed" << t << endl;
     cout << "H = " << h << endl;
     //processing corner points
-    //<Point2d> corner = {Point2d(0,0), Point2d(im1.cols-1,0),Point2d(0,im1.rows-1),Point2d(im1.cols-1,im1.rows-1)};
     vector<Point2d> corner = {Point2d(0,0), Point2d(im1.cols-1,0),Point2d(0,im1.rows-1),Point2d(im1.cols-1,im1.rows-1)};
     vector<Point2d> outcorner;
     double minx = INFINITY,miny = INFINITY, maxx =-INFINITY, maxy = -INFINITY ;
@@ -375,7 +369,7 @@ void challenge(vector<int>& input1, vector<int>& input2, double p = 0.9, int N =
     namedWindow(title3,CV_WINDOW_NORMAL);
     imshow(title3,img_out);
     waitKey(0);
-    imwrite("../../Image_2/challenge_out_"+convertint(N)+"_"+imagefile1, img_out);
+    //imwrite("../../Image_2/challenge_out_"+convertint(N)+"_"+imagefile1, img_out);
 }
 
 #endif
