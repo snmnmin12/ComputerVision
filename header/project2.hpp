@@ -113,7 +113,7 @@ void project2_question1(vector<int>&input1, vector<int>&input2) {
     //    imwrite("../../Image_2/q1_out_test2"+imagefile2, img_out);
     cout<<"Project finish"<<endl;
 }
-void project2_question2(string& imagefile1, string& imagefile2,vector<int>&input1, vector<int>&input2) {
+void project2_question2(vector<int>&input1, vector<int>&input2) {
     
     Mat image = imread(imagefile1);
     Mat image2 = imread(imagefile2);
