@@ -1,7 +1,9 @@
+
+#include "project2.hpp"
 #include "challenge.hpp"
 
-string imagefile1 = "Picture1.png";
-string imagefile2 = "Picture2.png";
+string imagefile1 = "../Picture1.png";
+string imagefile2 = "../Picture2.png";
 string title = "window";
 Scalar green = {0,255, 0};
 Scalar red = {0, 0, 255};
@@ -15,7 +17,5 @@ vector<Point3d> pts, des;
 int cou = 0;
 
 int main(int argc,char** argv) {
-	    double p = 0.99;
-    int N = 200;
-    challenge(input1, input2,p,N);
+    project2_question2(input1,input2);
 }

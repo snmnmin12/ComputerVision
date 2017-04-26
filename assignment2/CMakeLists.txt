@@ -1,4 +1,7 @@
-
+cmake_minimum_required(VERSION 2.8)
+project (ComputerVision)
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin/")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 find_package( OpenCV REQUIRED)
 
 #if the package has been found, several variables will
@@ -10,19 +13,15 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 include_directories(${OpenCV_INCLUDE_DIRS})
+file(GLOB HEADERS "*.h")
+#file(GLOB SOURCES "*.cpp")
 
-#include_directories(include)
-#file(GLOB SOURCES "${PROJECT_SOURCE_DIR}/src/tutorial.cpp")
-#add_executable(Tu ${SOURCES})
-add_executable(CV test1.cpp)
-target_link_libraries(CV ${OpenCV_LIBS})
 
 #test2
-add_executable(CV2 test2.cpp)
+add_executable(CV2 test2.cpp ${HEADERS})
 target_link_libraries(CV2 ${OpenCV_LIBS})
 
-#challenge
-add_executable(CV3 test2.cpp)
+#test3
+add_executable(CV3 test3.cpp ${HEADERS})
 target_link_libraries(CV3 ${OpenCV_LIBS})
 
-#target_compile_features(Tu PRIVATE cxx_range_for)

@@ -2,8 +2,8 @@
 #include "project2.hpp"
 #include "challenge.hpp"
 
-string imagefile1 = "../img/Test2_Picture1.png";
-string imagefile2 = "../img/Test2_Picture2.png";
+string imagefile1 = "../Picture1.png";
+string imagefile2 = "../Picture2.png";
 string title = "window";
 Scalar green = {0,255, 0};
 Scalar red = {0, 0, 255};
@@ -18,5 +18,4 @@ int cou = 0;
 
 int main(int argc,char** argv) {
    	project2_question1(input1,input2);
-    project2_question2(input1,input2);
 }

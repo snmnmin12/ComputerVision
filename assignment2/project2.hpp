@@ -67,6 +67,11 @@ void project2_question1(vector<int>&input1, vector<int>&input2) {
     //read images
     Mat image = imread(imagefile1);
     Mat image2 = imread(imagefile2);
+
+    if (!image.data || !image2.data) {
+        cout << "Can't find data!" << endl;
+        return;
+    }
     
     //processing input and draw points
     for (int i = 0; i < input1.size(); i+=2) {
@@ -92,25 +97,25 @@ void project2_question1(vector<int>&input1, vector<int>&input2) {
     
     //size of the output image
     Mat img_out = Mat(image2.rows,image.cols+image2.cols, image2.type());
-    image = imread(imagefile1);
-    warpPerspective(image, img_out,Htr*H, image.size()*4);
+    Mat image1 = imread(imagefile1);
+    warpPerspective(image1, img_out,Htr*H, image.size()*4);
     Mat part(img_out,Rect(-minx,-miny,image2.cols,image2.rows));
     Mat temp = imread(imagefile2);
     temp.copyTo(part);
     
-    string title1 = "test1";
-    string title2 = "test2";
-    string title3 = "result";
-    namedWindow(title1);
-    imshow(title1,image);
-    namedWindow(title2);
-    imshow(title2,image2);
-    namedWindow(title3);
-    imshow(title3,img_out);
-    waitKey(0);
-    //    imwrite("../../Image_2/q1_"+imagefile1, image);
-    //    imwrite("../../Image_2/q1_"+imagefile2, image2);
-    //    imwrite("../../Image_2/q1_out_test2"+imagefile2, img_out);
+//    string title1 = "test1";
+//    string title2 = "test2";
+//    string title3 = "result";
+//    namedWindow(title1);
+//    imshow(title1,image);
+//    namedWindow(title2);
+//    imshow(title2,image2);
+//    namedWindow(title3);
+//    imshow(title3,img_out);
+//    waitKey(0);
+        imwrite("q1_1.png", image);
+        imwrite("q1_2.png", image2);
+        imwrite("q1_out.png", img_out);
     cout<<"Project finish"<<endl;
 }
 void project2_question2(vector<int>&input1, vector<int>&input2) {
@@ -118,6 +123,10 @@ void project2_question2(vector<int>&input1, vector<int>&input2) {
     Mat image = imread(imagefile1);
     Mat image2 = imread(imagefile2);
     
+    if (!image.data || !image2.data) {
+        cout << "Can't find data!" << endl;
+        return;
+    }
     //normalize T1 and T2
     Mat T1 = normalizeT(input1);
     Mat T2 = normalizeT(input2);
@@ -170,19 +179,19 @@ void project2_question2(vector<int>&input1, vector<int>&input2) {
     warpPerspective(image, img_out, htra*H, img_out.size());
     Mat temp = imread(imagefile2);
     temp.copyTo(img_out(Rect(-minx,-miny,image2.cols,image2.rows)));
-    string title1 = "test1";
-    string title2 = "test2";
-    string title3 = "result";
-    namedWindow(title1,CV_WINDOW_NORMAL);
-    imshow(title1,image);
-    namedWindow(title2,CV_WINDOW_NORMAL);
-    imshow(title2,image2);
-    namedWindow(title3,CV_WINDOW_NORMAL);
-    imshow(title3,img_out);
-    waitKey(0);
-    //    imwrite("../../Image_2/q2_"+imagefile1, image);
-    //    imwrite("../../Image_2/q2_"+imagefile2, image2);
-    //imwrite("../../Image_2/q3_out_test"+imagefile1, img_out);
+//    string title1 = "test1";
+//    string title2 = "test2";
+//    string title3 = "result";
+//    namedWindow(title1,CV_WINDOW_NORMAL);
+//    imshow(title1,image);
+//    namedWindow(title2,CV_WINDOW_NORMAL);
+//    imshow(title2,image2);
+//    namedWindow(title3,CV_WINDOW_NORMAL);
+//    imshow(title3,img_out);
+//    waitKey(0);
+    imwrite("q2_1.png", image);
+    imwrite("q2_2.png", image2);
+    imwrite("q2_out.png", img_out);
     cout<<"Project finish"<<endl;
 }
 #endif

@@ -2,7 +2,7 @@
 #include "project1.hpp"
 
 //global varaibles for imamge files names;
-string imagefile = "..//img/Test1_Picture1.png";
+string imagefile = "../Picture1.png";
 
 //original points and destination points for image a
 vector<int> inputpoints1 = {274, 32, 353, 41, 277, 295, 352, 269};
@@ -30,29 +30,29 @@ int main(int arg, char** args){
     vector<int> perp1 = {274, 32, 353, 41, 353, 41, 352, 110};
     vector<int> perp2 = {274 ,32, 352,110, 353, 41, 275, 111};
    // points for image b
-//    vector<int> perp1 = {81,  122, 181, 112, 181, 112, 178, 190};
-//    vector<int> perp2 = {81, 122, 178, 190, 181, 112, 81, 187};
-   //removeaffine(imagefile, hp, perp1, perp2);
+   // vector<int> perp1 = {81,  122, 181, 112, 181, 112, 178, 190};
+   // vector<int> perp2 = {81, 122, 178, 190, 181, 112, 81, 187};
+   removeaffine(imagefile, hp, perp1, perp2);
    
    //This is for challenge question
    //input points with 5 group of orthogonal lines
-//    vector<vector<int>> onestepinput =
-//                        {{274, 32, 353, 41,  353, 41, 352, 110},
-//                         {274 ,32, 352, 110, 353, 41, 275, 111},
-//                         {33, 186, 49,  184, 49, 184, 51, 208},
-//                         {311,154, 313, 172,313, 172, 321, 170},
-//                         {277,204, 276, 295, 276,295,352, 268},
-//                        };
-   
    vector<vector<int>> onestepinput =
-                       {{80,  124, 178, 190, 181, 112, 80, 188},
-                        {80,  124, 181, 112, 181, 112, 178, 190},
-//                         {224, 92, 225, 80, 225, 80, 245, 77},
-                        {353,259,351,282,351,282,364,285},
-                        {298, 197, 301, 98,  301, 98,  390, 89},
-                        {129, 350, 178, 370, 178, 370, 179, 281},
+                       {{274, 32, 353, 41,  353, 41, 352, 110},
+                        {274 ,32, 352, 110, 353, 41, 275, 111},
+                        {33, 186, 49,  184, 49, 184, 51, 208},
+                        {311,154, 313, 172,313, 172, 321, 170},
+                        {277,204, 276, 295, 276,295,352, 268},
                        };
-   //onestepmethod(imagefile, onestepinput);
+   
+//    vector<vector<int>> onestepinput =
+//                        {{80,  124, 178, 190, 181, 112, 80, 188},
+//                         {80,  124, 181, 112, 181, 112, 178, 190},
+// //                         {224, 92, 225, 80, 225, 80, 245, 77},
+//                         {353,259,351,282,351,282,364,285},
+//                         {298, 197, 301, 98,  301, 98,  390, 89},
+//                         {129, 350, 178, 370, 178, 370, 179, 281},
+//                        };
+   onestepmethod(imagefile, onestepinput);
    //This is to select foun point with mouse button, not used for now;
    //getpoints(imagefile);
    return 0;

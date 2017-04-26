@@ -342,8 +342,7 @@ void removeprojective(string& img1, vector<int>& paralle1) {
     
 //    namedWindow(title);
 //    imshow(title, im_in);
-    //    imwrite("../../q2_project"+imagefile, im_in);
-    //    imwrite("../../q2_project_out"+imagefile, im_out);
+       imwrite("projective1.png", im_out);
 //    namedWindow(title2);
 //    imshow(title2, im_out);
 //    waitKey(0);
@@ -384,7 +383,7 @@ void removeaffine(string& img1, Mat Hp, vector<int>&per1, vector<int>&per2) {
     //    waitKey(0);
     //warpPerspective(im_in, im_out, L, im_out.size());
     //    imwrite("../../q2_affine"+imagefile, im_in);
-    //    imwrite("../../q2_affine_out"+imagefile, im_out);
+       imwrite("affine1_out.png", im_out);
 }
 
 
@@ -407,7 +406,7 @@ void onestepmethod(string& imagefile, vector<vector<int>>& inputs) {
     //    transformimage(im_in, im_out, hp.inv());
     warpPerspective(im_in, im_out, hp.inv(), im_out.size());
 //    imwrite("../../one_step_"+imagefile, im_in);
-//    imwrite("../../one_step_out"+imagefile, im_out);
+   imwrite("one_step_out.png", im_out);
 //        string title = "test1";
 //        string title2 = "test2";
 //        namedWindow(title);
